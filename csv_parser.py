@@ -1,3 +1,8 @@
+import pickle
+from datetime import datetime
+
+import transaction
+
 
 class Parser:
     def __init__(self):
@@ -18,6 +23,8 @@ class Parser:
         sum = 0
         for l in data:
             if float(l.split(';')[7].replace(".", "").replace(",", ".")) < 0 and "VISA MCDONALDS" in l or "MCDONALDS;Lastschrift" in l:
+                l_split = l.split(';')
+                ta = transaction.Transaction()
                 sum -= float(l.split(';')[7].replace(".", "").replace(",", "."))
                 print(l)
         print(sum)
