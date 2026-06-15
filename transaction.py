@@ -39,3 +39,6 @@ class Transaction:
 
     def get_raw_data(self) -> str:
         return self.raw_data
+
+    def print_object(self) -> str:
+        return str(datetime.strftime(self.date, "%d.%m.%Y")) + "    " + self.transaction_name + "    " + str(self.payment) + " " + self.currency_payment + "    " + self.details
